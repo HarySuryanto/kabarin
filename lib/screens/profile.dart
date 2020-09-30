@@ -4,7 +4,7 @@ class Profile extends StatelessWidget {
   
   GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
   
-  Profile({ this.scaffoldKey });
+  Profile({ @required this.scaffoldKey });
 
   @override
   Widget build(BuildContext context) {
