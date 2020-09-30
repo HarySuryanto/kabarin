@@ -9,15 +9,11 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<Home> with TickerProviderStateMixin {
+class _HomeState extends State<Home> {
 
   static GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   static int _selectedIndex = 0;
-
-  // FadeTransition
-  AnimationController animation;
-  Animation<double> _fadeInFadeOut;
 
   List<Widget> _widgetOptions = <Widget>[
     // Option 1
@@ -41,14 +37,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
             listItemTile('Kemal Dwi Saputro', '1 min'),
             listItemTile('Kemal Dwi Saputro', '1 min'),
             listItemTile('Kemal Dwi Saputro', '1 min'),
-            listItemTile('Kemal Dwi Saputro', '1 min'),
-            listItemTile('Kemal Dwi Saputro', '1 min'),
-            listItemTile('Kemal Dwi Saputro', '1 min'),
-            listItemTile('Kemal Dwi Saputro', '1 min'),
-            listItemTile('Kemal Dwi Saputro', '1 min'),
-            listItemTile('Kemal Dwi Saputro', '1 min'),
-            listItemTile('Kemal Dwi Saputro', '1 min'),
-            listItemTile('Kemal Dwi Saputro', '1 min'),
           ],
         ),
       ),
@@ -64,35 +52,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      Toast.show(_selectedIndex.toString(), context);
-      // animation.forward();
-      // animation.reverse();
     });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    
-    // FadeTransition
-    animation = AnimationController(
-      vsync: this,
-      duration: Duration(milliseconds: 1000)
-    );
-    _fadeInFadeOut = Tween<double>(
-      begin: 0.0,
-      end: 1.0
-    ).animate(animation);
-
-    /* animation.addStatusListener((status){
-      if (status == AnimationStatus.completed) {
-        animation.reverse();
-      } else if (status == AnimationStatus.dismissed) {
-        animation.forward();
-      }
-    }); */
-
-    animation.forward();
   }
 
   @override
@@ -120,28 +80,6 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         ),
       ),
 
-      /* bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            title: Text('Home')
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            title: Text('Explore')
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            title: Text('Profile')
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blue,
-        onTap: _onItemTapped,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-      ), */
-
       bottomNavigationBar: CurvedNavigationBar(
         buttonBackgroundColor: Colors.transparent,
         color: Colors.grey[850],
@@ -157,11 +95,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         },
       ),
 
-      body: FadeTransition(
-        opacity: _fadeInFadeOut,
-        child: SafeArea(
-          child: _widgetOptions.elementAt(_selectedIndex)
-        ),
+      body: SafeArea(
+        child: _widgetOptions.elementAt(_selectedIndex)
       ),
 
     );
