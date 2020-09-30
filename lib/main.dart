@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
         '/register': (context) => Register(),
         '/home': (context) => Home(),
       },
-      title: 'Flutter Demo',
+      title: 'Kabarin',
       theme: ThemeData(
         // This is the theme of your application.
         primarySwatch: Colors.blueGrey,
