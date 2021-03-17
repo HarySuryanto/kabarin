@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kabarin/screens/activity_list.dart';
 import 'package:kabarin/screens/home.dart';
 import 'package:kabarin/screens/login.dart';
 import 'package:kabarin/screens/register.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => Login(),
         '/register': (context) => Register(),
         '/home': (context) => Home(),
+        '/activity_list': (context) => ActivityList(),
       },
       title: 'Kabarin',
       theme: ThemeData(

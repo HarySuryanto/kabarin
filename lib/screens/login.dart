@@ -107,10 +107,31 @@ class _LoginState extends State<Login> {
                       ),
                       child: Text(
                         'REGISTER',
-                        style: TextStyle(color: Colors.grey[800],),
+                        style: TextStyle(color: Colors.grey[800]),
                       ),
                       onPressed: () {
                         Navigator.pushNamed(context, '/register');
+                      }
+                    ),
+                  ),
+                  
+                  SizedBox(height: 20),
+                  
+                  // Button temp
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    child: FlatButton(
+                      padding: EdgeInsets.all(16),
+                      color: Colors.grey[300],
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Text(
+                        'Activity List',
+                        style: TextStyle(color: Colors.grey[800]),
+                      ),
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/activity_list');
                       }
                     ),
                   ),

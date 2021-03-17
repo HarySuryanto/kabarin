@@ -153,8 +153,8 @@ class Profile extends StatelessWidget {
               ],
             ),
             SizedBox(height: 5),
-            Container(
-              width: 300,
+            LimitedBox(
+              maxWidth: 300,
               child: Text(
                 content, 
                 style: TextStyle(fontSize: 20),
